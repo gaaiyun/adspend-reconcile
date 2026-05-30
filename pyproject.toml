@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "adspend-reconcile"
+version = "0.3.0"
+description = "Local-first, zero-OAuth ad-spend reconciliation CLI: align Meta/Google/TikTok exports with real store revenue by date x channel."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "gaaiyun" }]
+keywords = ["marketing", "roas", "mer", "reconciliation", "ecommerce", "analytics", "cli"]
+dependencies = [
+    "pandas>=2.0",
+    "duckdb>=0.9",
+    "typer>=0.12",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+adspend-reconcile = "adspend_reconcile.cli:main"
+
+[tool.setuptools]
+packages = ["adspend_reconcile"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
